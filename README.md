@@ -11,6 +11,6 @@ To be continued
 <hr>
 <ul>
   <li><a href = "https://github.com/ElzaNiyazbekova">Niyazbekova Elza</a> </li>
-  <li><a herf = "https://github.com/Sapok-prog">Altynbek Amina</a></li>
+  <li><a herf = "https://github.com/Sapok-prog">Altynbek Amina</a> </li>
   <li><a href="https://github.com/senbame">Nursultan Dastan</a></li>
 </ul>
