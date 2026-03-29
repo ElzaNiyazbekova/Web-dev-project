@@ -16,8 +16,8 @@ The website is primarily intended for tourists visiting Kazakhstan who may not k
 
 
 # Group members
-Niyazbekova Elza
-
-Altynbek Amina
-
-Nursultan
+<ul>
+  <li>Niyazbekova Elza</li>
+  <li>Altynbek Amina</li>
+  <li>Nursultan</li>
+</ul>
