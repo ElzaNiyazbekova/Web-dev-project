@@ -19,5 +19,5 @@ The website is primarily intended for tourists visiting Kazakhstan who may not k
 <ul>
   <li>Niyazbekova Elza</li>
   <li>Altynbek Amina</li>
-  <li>Nursultan</li>
+  <li>Nursultan Dastan</li>
 </ul>
