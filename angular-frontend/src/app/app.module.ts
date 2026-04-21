@@ -18,6 +18,9 @@ import { LocationFormComponent } from './components/location-form/location-form.
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     LocationFormComponent,
     FavoritesComponent,
     ReviewsComponent,
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

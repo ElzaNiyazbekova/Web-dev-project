@@ -32,12 +32,19 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // (click) event #1 — search by city
+  // (click) event #1 — search by city or person's name
   onSearch(): void {
     if (this.searchQuery.trim()) {
-      this.router.navigate(['/locations'], {
-        queryParams: { city: this.searchQuery.trim() }
-      });
+      const query = this.searchQuery.trim();
+      if (query.includes(' ')) {
+        this.router.navigate(['/locations'], {
+          queryParams: { created_by: query }
+        });
+      } else {
+        this.router.navigate(['/locations'], {
+          queryParams: { city: query }
+        });
+      }
     }
   }
 

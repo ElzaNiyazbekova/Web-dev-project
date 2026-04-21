@@ -28,7 +28,8 @@ class PublishedLocationManager(models.Manager):
     
     def by_target_group(self, group_name):
         return self.filter(target_group__name__iexact=group_name)
-
+    
+    
 
 class Location(models.Model):
     name = models.CharField(max_length=200)

@@ -15,9 +15,9 @@ export class LocationsComponent implements OnInit {
   categories: Category[] = [];
   targetGroups: TargetGroup[] = [];
 
-  // [(ngModel)] filter controls
-  filterCategory = '';
-  filterTargetGroup = '';
+  // [(ngModel)] filter controls - can be empty string, numeric ID string, or number
+  filterCategory: any = '';
+  filterTargetGroup: any = '';
 
   loading = false;
   errorMessage = '';
@@ -44,8 +44,8 @@ export class LocationsComponent implements OnInit {
     this.loading = true;
     this.errorMessage = '';
     this.locationService.getLocations({
-      category: this.filterCategory || undefined,
-      target_group: this.filterTargetGroup || undefined,
+      category: this.filterCategory ? String(this.filterCategory) : undefined,
+      target_group: this.filterTargetGroup ? String(this.filterTargetGroup) : undefined,
     }).subscribe({
       next: (data) => { this.locations = data; this.loading = false; },
       error: (err) => {
@@ -57,6 +57,15 @@ export class LocationsComponent implements OnInit {
 
   // (click) event #5 — apply filters
   applyFilters(): void {
+    // Update URL with current filter values
+    const queryParams: any = {};
+    if (this.filterCategory) queryParams.category = this.filterCategory;
+    if (this.filterTargetGroup) queryParams.target_group = this.filterTargetGroup;
+    this.router.navigate([], { 
+      relativeTo: this.route, 
+      queryParams,
+      queryParamsHandling: 'merge'
+    });
     this.loadLocations();
   }
 
@@ -64,6 +73,11 @@ export class LocationsComponent implements OnInit {
   clearFilters(): void {
     this.filterCategory = '';
     this.filterTargetGroup = '';
+    // Update URL to remove filter params
+    this.router.navigate([], { 
+      relativeTo: this.route,
+      queryParams: {}
+    });
     this.loadLocations();
   }
 

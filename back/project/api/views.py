@@ -100,20 +100,22 @@ class LocationListCreateView(APIView):
     """
     parser_classes = [MultiPartParser, FormParser]
     def get(self, request):
-        """List locations with optional filtering"""
         locations = Location.objects.all()
-        
-        # Filter by category
+
         category = request.query_params.get('category')
         if category:
-            locations = locations.filter(category__name__iexact=category)
-        
-        # Filter by target_group
+            locations = locations.filter(category_id=category)
+
         target_group = request.query_params.get('target_group')
         if target_group:
-            locations = locations.by_target_group(target_group)
-        
-        serializer = LocationSerializer(locations, many=True, context={'request': request})
+            locations = locations.filter(target_group_id=target_group)
+
+        serializer = LocationSerializer(
+            locations,
+            many=True,
+            context={'request': request}
+        )
+
         return Response(serializer.data)
     
     def post(self, request):
