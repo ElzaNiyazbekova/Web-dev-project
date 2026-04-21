@@ -1,0 +1,560 @@
+{
+  "info": {
+    "_postman_id": "123456789",
+    "name": "Kazakhstan Tourism Platform API",
+    "description": "Complete API endpoints for the Kazakhstan Tourism Platform backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "description": "Authentication endpoints - Register, Login, Logout",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"securepassword123\",\n  \"password2\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register",
+                ""
+              ]
+            },
+            "description": "Register a new user account"
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login",
+                ""
+              ]
+            },
+            "description": "Login and receive authentication token"
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout",
+                ""
+              ]
+            },
+            "description": "Logout and invalidate current token"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Locations",
+      "description": "Location CRUD operations - Full lifecycle",
+      "item": [
+        {
+          "name": "List All Locations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                ""
+              ]
+            },
+            "description": "Get all locations"
+          },
+          "response": []
+        },
+        {
+          "name": "List Locations by City",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/?city=Almaty",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Almaty"
+                }
+              ]
+            },
+            "description": "Filter locations by city"
+          },
+          "response": []
+        },
+        {
+          "name": "List Locations by Target Group",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/?target_group=Family",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "target_group",
+                  "value": "Family"
+                }
+              ]
+            },
+            "description": "Filter locations by target group"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Location",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Big Almaty Lake\",\n  \"description\": \"Beautiful alpine lake in the mountains of Almaty\",\n  \"city\": \"Almaty\",\n  \"category_id\": 1,\n  \"target_group_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/locations/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                ""
+              ]
+            },
+            "description": "Create a new location (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Location Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "1",
+                ""
+              ]
+            },
+            "description": "Get details of a specific location"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Location",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Big Almaty Lake - Updated\",\n  \"description\": \"One of the most beautiful alpine lakes in Kazakhstan\",\n  \"category_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/locations/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "1",
+                ""
+              ]
+            },
+            "description": "Update location details (requires authentication and ownership)"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Location",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/locations/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "1",
+                ""
+              ]
+            },
+            "description": "Delete a location (requires authentication and ownership)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "description": "Review management - List and create reviews",
+      "item": [
+        {
+          "name": "List All Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/reviews/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "reviews",
+                ""
+              ]
+            },
+            "description": "Get all reviews"
+          },
+          "response": []
+        },
+        {
+          "name": "List Reviews for Location",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/reviews/?location_id=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "reviews",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "location_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Get all reviews for a specific location"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Amazing views and perfect for hiking!\",\n  \"rating\": 5,\n  \"location\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/reviews/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "reviews",
+                ""
+              ]
+            },
+            "description": "Create a new review (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/reviews/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "reviews",
+                "1",
+                ""
+              ]
+            },
+            "description": "Delete a review (requires authentication and ownership)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Favorites",
+      "description": "User favorites management",
+      "item": [
+        {
+          "name": "Get My Favorites",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/favorites/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "favorites",
+                ""
+              ]
+            },
+            "description": "Get current user's favorite locations"
+          },
+          "response": []
+        },
+        {
+          "name": "Add to Favorites",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/favorites/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "favorites",
+                ""
+              ]
+            },
+            "description": "Add a location to favorites"
+          },
+          "response": []
+        },
+        {
+          "name": "Remove from Favorites",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/favorites/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "favorites",
+                ""
+              ]
+            },
+            "description": "Remove a location from favorites"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reference Data",
+      "description": "Read-only reference endpoints for Categories and Target Groups",
+      "item": [
+        {
+          "name": "List Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/categories/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                ""
+              ]
+            },
+            "description": "Get all available categories"
+          },
+          "response": []
+        },
+        {
+          "name": "List Target Groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/target-groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "target-groups",
+                ""
+              ]
+            },
+            "description": "Get all available target groups"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

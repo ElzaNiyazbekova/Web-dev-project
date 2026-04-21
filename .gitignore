@@ -1,0 +1,73 @@
+
+# ======================
+# Python / Django
+# ======================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Django migrations (НЕ игнорируй в учебке, но можно если команда согласна)
+# */migrations/__pycache__/
+# */migrations/*.pyc
+
+# ======================
+# Virtual Environment
+# ======================
+venv/
+env/
+.venv/
+
+# ======================
+# Django local settings
+# ======================
+*.env
+.env
+local_settings.py
+
+# ======================
+# IDE / Editors
+# ======================
+.vscode/
+.idea/
+*.swp
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Node / Angular
+# ======================
+node_modules/
+dist/
+.angular/
+coverage/
+
+# Angular build
+build/
+
+# ======================
+# Logs
+# ======================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# Angular environment (если используешь секреты)
+# ======================
+src/environments/environment.prod.ts
+
+# ======================
+# Compiled Angular
+# ======================
+out-tsc/
+
+# ======================
+# Optional: Postman
+# ======================
+*.postman_environment.json
+*.postman_collection.json
