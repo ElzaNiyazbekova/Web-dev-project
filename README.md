@@ -104,17 +104,17 @@ This project was lovingly crafted by:
 <table>
   <tr>
     <td align="center">
-      <img src="https://avatars.githubusercontent.com/u/12345678?v=4" width="100px;" alt="Niyazbekova Elza"/><br />
+      <a href="https://github.com/ElzaNiyazbekova"><img src="https://github.com/ElzaNiyazbekova.png" width="100px;" alt="Niyazbekova Elza"/></a><br />
       <sub><b>Niyazbekova Elza</b></sub><br />
       <sub>Backend Developer</sub>
     </td>
     <td align="center">
-      <img src="https://avatars.githubusercontent.com/u/87654321?v=4" width="100px;" alt="Altynbek Amina"/><br />
+      <a href="https://github.com/Sapok-prog"><img src="https://github.com/Sapok-prog.png" width="100px;" alt="Altynbek Amina"/></a><br />
       <sub><b>Altynbek Amina</b></sub><br />
       <sub>Frontend Developer</sub>
     </td>
     <td align="center">
-      <img src="https://avatars.githubusercontent.com/u/11223344?v=4" width="100px;" alt="Nursultan Dastan"/><br />
+      <a href="https://github.com/senbame"><img src="https://github.com/senbame.png" width="100px;" alt="Nursultan Dastan"/></a><br />
       <sub><b>Nursultan Dastan</b></sub><br />
       <sub>Full-Stack Developer</sub>
     </td>
