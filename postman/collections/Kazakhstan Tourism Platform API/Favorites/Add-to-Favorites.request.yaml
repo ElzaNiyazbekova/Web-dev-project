@@ -1,0 +1,23 @@
+$kind: http-request
+name: Add to Favorites
+method: POST
+url: '{{base_url}}/api/favorites/'
+order: 2000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "location_id": 1
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 201", function () {
+        pm.response.to.have.status(201);
+      });

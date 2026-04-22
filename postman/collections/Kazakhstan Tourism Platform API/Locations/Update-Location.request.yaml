@@ -1,0 +1,24 @@
+$kind: http-request
+name: Update Location
+method: PUT
+url: '{{base_url}}/api/locations/{{location_id}}/'
+order: 4000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Big Almaty Lake - Updated",
+      "description": "One of the most beautiful alpine lakes in Kazakhstan"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });

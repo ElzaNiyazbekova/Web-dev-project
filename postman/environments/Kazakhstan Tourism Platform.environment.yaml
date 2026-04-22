@@ -1,0 +1,18 @@
+name: Kazakhstan Tourism Platform
+values:
+  - key: base_url
+    value: 'http://localhost:8000'
+    type: default
+    enabled: true
+  - key: token
+    value: ''
+    type: secret
+    enabled: true
+  - key: location_id
+    value: '1'
+    type: default
+    enabled: true
+  - key: review_id
+    value: '1'
+    type: default
+    enabled: true

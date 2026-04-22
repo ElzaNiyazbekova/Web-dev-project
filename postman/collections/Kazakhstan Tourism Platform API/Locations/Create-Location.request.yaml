@@ -1,0 +1,32 @@
+$kind: http-request
+name: Create Location
+method: POST
+url: '{{base_url}}/api/locations/'
+order: 2000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Big Almaty Lake",
+      "description": "Beautiful alpine lake in the mountains of Almaty",
+      "city": "Almaty",
+      "category_id": 1,
+      "target_group_id": 2
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 201", function () {
+        pm.response.to.have.status(201);
+      });
+      pm.test("Response has id", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData).to.have.property("id");
+        pm.environment.set("location_id", jsonData.id);
+      });

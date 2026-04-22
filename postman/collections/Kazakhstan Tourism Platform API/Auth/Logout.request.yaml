@@ -1,0 +1,15 @@
+$kind: http-request
+name: Logout
+method: POST
+url: '{{base_url}}/api/auth/logout/'
+order: 3000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });

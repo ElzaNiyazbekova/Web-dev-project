@@ -71,3 +71,5 @@ out-tsc/
 # ======================
 *.postman_environment.json
 *.postman_collection.json
+
+Описание.md

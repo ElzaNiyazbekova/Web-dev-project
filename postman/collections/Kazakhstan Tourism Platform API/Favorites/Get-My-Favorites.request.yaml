@@ -1,0 +1,15 @@
+$kind: http-request
+name: Get My Favorites
+method: GET
+url: '{{base_url}}/api/favorites/'
+order: 1000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });

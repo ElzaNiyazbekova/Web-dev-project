@@ -1,0 +1,15 @@
+$kind: http-request
+name: Delete Review
+method: DELETE
+url: '{{base_url}}/api/reviews/{{review_id}}/'
+order: 3000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 204", function () {
+        pm.response.to.have.status(204);
+      });

@@ -1,0 +1,30 @@
+$kind: http-request
+name: Create Review
+method: POST
+url: '{{base_url}}/api/reviews/'
+order: 2000
+headers:
+  - key: Authorization
+    value: 'Token {{token}}'
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "text": "Amazing views and perfect for hiking!",
+      "rating": 5,
+      "location": 1
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 201", function () {
+        pm.response.to.have.status(201);
+      });
+      pm.test("Save review id", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData).to.have.property("id");
+        pm.environment.set("review_id", jsonData.id);
+      });

@@ -1,0 +1,16 @@
+$kind: http-request
+name: List All Reviews
+method: GET
+url: '{{base_url}}/api/reviews/'
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });
+      pm.test("Response is an array", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData).to.be.an("array");
+      });
