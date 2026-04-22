@@ -106,12 +106,12 @@ This project was lovingly crafted by:
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/12345678?v=4" width="100px;" alt="Niyazbekova Elza"/><br />
       <sub><b>Niyazbekova Elza</b></sub><br />
-      <sub>Frontend Developer</sub>
+      <sub>Backend Developer</sub>
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/87654321?v=4" width="100px;" alt="Altynbek Amina"/><br />
       <sub><b>Altynbek Amina</b></sub><br />
-      <sub>Backend Developer</sub>
+      <sub>Frontend Developer</sub>
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/11223344?v=4" width="100px;" alt="Nursultan Dastan"/><br />
